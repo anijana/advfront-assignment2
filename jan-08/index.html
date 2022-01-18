@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Zen+Loop&display=swap');
+:root {
+    --mainColor1: #636e72;
+    --mainColor2: #f1f2f6; 
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    height: 100%;
+    width: 100%;
+}
+body {
+    font-family: 'Zen Loop', cursive;
+    background-color: #CAD5E2;
+    text-transform: uppercase;
+    min-height: 100%;
+    overflow: hidden;
+}
+.container {
+    width: 60%;
+    height: 100%;
+    margin: 0 auto;
+}
+.watch {
+    text-align: center;
+    font-size: 5rem;
+    font-weight: lighter;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.hourDiv, 
+.minuteDiv, 
+.secondDiv, 
+.milliSecondDiv {
+    width: 20%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.hour, 
+.minute, 
+.second, 
+.milliSecond {
+    padding: 5px;
+    background-color: var(--mainColor1);
+}
+.hourTitle, 
+.minuteTitle, 
+.secondTitle, 
+.milliSecondTitle {
+    background-color: var(--mainColor2);
+    font-size: 3rem;
+    padding: 5px;
+    font-weight: bold;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: #57606f;
+}
+.button {
+    border: none;
+    border-radius: 10px;
+    font-size: 3rem;
+    padding: 10px;
+    width: 180px;
+    font-weight: bold;
+    font-family: 'Zen Loop', cursive;
+}
+.start {
+    margin-right: 5%;
+    color: #4cd137;
+    transition: 0.5s ease-in-out;
+}
+.start:hover {
+    background-color: #00d2d3;
+    color: #fff;
+}
+.pause {
+    transition: 0.5s ease-in-out;
+    margin-right: 4%;
+}
+.pause:hover {
+    background-color: #FFC312;
+    color: #fff;
+}
+.lap:hover {
+    background-color: #74b9ff;
+    color: #fff;
+}
+
+.stop {
+    margin-right: 5%;
+   
+    color: #ff6b6b;
+
+    transition: 0.5s ease-in-out;
+}
+.stop:hover {
+    background-color: #ff6b6b;
+    color: #fff;
+}
+
+.buttons {
+    margin-top: 2%;
+    margin-bottom: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@media screen and (max-width: 768px) {
+    .container {
+        width: 100%;
+    }
+    .watch {
+        font-size: 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .hourTitle, 
+    .minuteTitle, 
+    .secondTitle, 
+    .milliSecondTitle {
+        font-size: 2rem;
+    }
+    .button {
+        margin-top: 5%;
+        margin-bottom: 5%;
+        width: 50%;
+    }
+    .start, .stop {
+        margin: 0;
+    }
+    .buttons {
+        margin-top: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+}
+@media screen and (max-width: 550px) {
+    .watch {
+        font-size: 2rem;
+    }
+    .hourTitle, 
+    .minuteTitle, 
+    .secondTitle, 
+    .milliSecondTitle {
+        font-size: 1.5rem;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="watch">
+            <div class="hourDiv">
+                <h3 class="hour">01</h3>
+                <p class="hourTitle">Hour</p>
+            </div>
+            <div class="minuteDiv">
+                <h3 class="minute">30</h3>
+                <p class="minuteTitle">Min</p>
+            </div>
+            <div class="secondDiv">
+                <h3 class="second">01</h3>
+                <p class="secondTitle">Sec</p>
+            </div>
+            <div class="milliSecondDiv">
+                <h3 class="milliSecond">99</h3>
+                <p class="milliSecondTitle">Millis</p>
+            </div>
+        </div>
+        <div class="buttons">
+            <button class="start button">Start</button>
+            <button class="pause button">Pause</button>
+            <button class="stop button">Reset</button>
+            
+        </div>
+    </div>
+   
+    <script>
+        // let bodyWidth = screen.width;
+        // if(bodyWidth === 250) {
+        //     alert("Web App Not Compatiable Choose Device Above 300 Width Otherwise UI Design Will be Messy.");
+        // }
+
+        
+let hourElement = document.querySelector(".hour");
+let minuteElement = document.querySelector(".minute");
+let secondElement = document.querySelector(".second");
+let millisecondElement = document.querySelector(".milliSecond");
+
+
+let startButton = document.querySelector(".start");
+let pauseButton = document.querySelector(".pause");
+let stopButton = document.querySelector(".stop");
+let lapButton = document.querySelector(".lap");
+
+
+let hour = 00;
+let minute = 00;
+let second = 00;
+let millisecond = 00;
+let interval;
+
+window.onload = () => clearFields();
+
+startButton.onclick  = function() {
+    clearInterval(interval); 
+    interval = setInterval(startTimer, 10); // 
+};
+pauseButton.onclick = function() { 
+    clearInterval(interval); 
+};
+stopButton.onclick = function() {
+    clearInterval(interval); 
+    clearFields();
+}
+
+lapButton.onclick = function() { 
+    
+   
+};
+function startTimer() {
+    millisecond++;
+    if(millisecond < 9) {
+        millisecondElement.innerText = "0" + millisecond;
+    }
+    if(millisecond > 99) {
+        second++;
+        secondElement.innerText = "0" + second;
+        millisecond = 0;
+        millisecondElement.innerText = "0" + millisecond;
+    }
+    if(second > 60) {
+        minute++;
+        minuteElement.innerText = "0" + minute;
+        second = 0;
+        secondElement.innerText = "0" + second;
+    }
+
+    if(millisecond > 9) {
+        millisecondElement.innerText = millisecond;
+    }
+    if (second > 9){
+        secondElement.innerText = second;
+    }
+    if (minute > 9){
+        minuteElement.innerText = minute;
+    }
+    if(hour > 9) {
+        hourElement.innerText = hour;
+    }
+}
+
+function clearFields() {
+    hourElement.innerText = "00";
+    minuteElement.innerText = "00";
+    secondElement.innerText = "00";
+    millisecondElement.innerText = "00";
+}
+    </script>
+</body>
+</html>

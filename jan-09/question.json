@@ -1,0 +1,50 @@
+[
+    {
+        "q":"The 2022 Women's Hockey Asia Cup will be held in which country?",
+       "options" :[{"optionA":"Myanmar"},
+        {"optionB":"Oman"},
+        {"optionC":"India"},
+        {"optionD":"Thailand"}],
+        "Ans":"Oman"
+    },
+    {
+        "q":"Daniel Ortega has been reappointed as the President of which country recently for the 4th straight term?",
+       "options": [{"optionA":"Argentina"},
+        {"optionB":"Honduras"},
+        {"optionC":"Nicaragua"},
+        {"optionD":"Bolivia"}],
+        "Ans":"Nicaragua"
+    },
+    {
+        "q":"Which country has announced firing 2 train-borne guided missiles?",
+       "options":[ { "optionA":"North Korea"},
+        {"optionB":"South Korea"},
+        {"optionC":"USA"},
+        {"optionD":"Russia"}],
+        "Ans":"North Korea"
+    },
+    {
+        "q":"Darvaza gas crater, also known as the 'Gateway to Hell', is located in which country?",
+        "options":[{"optionA":"Russia"},
+        {"optionB":"USA"},
+        {"optionC":"Indonesia"},
+        {"optionD":"Turkmenistan"}],
+        "Ans":"Turkmenistan"
+    },
+    {
+        "q":"Which country has decided to expand the testing capacity by distributing rapid COVID-19 tests?",
+        "options":[{"optionA":"USA"},
+        {"optionB":"UAE"},
+        {"optionC":"China"},
+        {"optionD":"Nepal"}],
+        "Ans":"USA"
+    },
+    {
+        "q":"Which British Royal Family member has been stripped of all his Royal patronages and military titles?",
+        "options":[{"optionA":"Prince Charles"},
+            {"optionB":"Prince Andrew"},
+            {"optionC":"Prince William"},
+            {"optionD":"Prince Henry"}],
+        "Ans":"Prince Andrew"
+    }
+]
